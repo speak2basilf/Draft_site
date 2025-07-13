@@ -192,7 +192,7 @@ const Header: React.FC = () => {
             <img 
               src="/finallll.png" 
               alt="CliniGlobal Logo" 
-              className="h-16 w-16 md:h-18 md:w-18 mr-3 rounded-lg shadow-md"
+              className="h-18 w-18 md:h-24 md:w-24 mr-3 rounded-lg shadow-md"
             />
             <div>
               <h1 className="text-xl md:text-2xl font-bold cliniglobal-brand font-poppins">
