@@ -391,7 +391,6 @@ const Header: React.FC = () => {
               ) : (
                 <Menu className="block h-6 w-6" aria-hidden="true" />
               )}
-            </button>
           </div>
           
           {/* LMS and Enroll Now section */}
