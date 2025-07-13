@@ -220,6 +220,21 @@ const Header: React.FC = () => {
             </div>
           </div>
           
+          {/* Mobile menu button */}
+          <div className="-mr-2 flex lg:hidden">
+            <button
+              onClick={toggleMenu}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+            >
+              <span className="sr-only">Open main menu</span>
+              {isMenuOpen ? (
+                <X className="block h-6 w-6" aria-hidden="true" />
+              ) : (
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+          
           <div className="hidden lg:flex flex-1 justify-center ml-2 md:ml-4">
             <div className="flex items-baseline space-x-1 xl:space-x-2">
               <button 
@@ -385,13 +400,6 @@ const Header: React.FC = () => {
                   </div>
                 )}
             </div>
-              <span className="sr-only">Open main menu</span>
-              {isMenuOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
           </div>
           
           {/* LMS and Enroll Now section */}
