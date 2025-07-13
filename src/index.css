@@ -371,6 +371,8 @@
 .h-30 { height: 7.5rem; }
 .w-34 { width: 8.5rem; }
 .h-34 { height: 8.5rem; }
+.w-18 { width: 4.5rem; }
+.h-18 { height: 4.5rem; }
 
 /* Custom scrollbar for better UX */
 ::-webkit-scrollbar {

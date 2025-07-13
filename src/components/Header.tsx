@@ -205,7 +205,7 @@ const Header: React.FC = () => {
               <img 
                 src="/finallll.png" 
                 alt="CliniGlobal Research Institute Logo" 
-                className="h-16 w-16 md:h-28 md:w-28 lg:h-32 lg:w-32 mr-2 md:mr-3 object-contain hover:scale-105 transition-transform duration-300 opacity-90 hover:opacity-100"
+                className="h-18 w-18 md:h-30 md:w-30 lg:h-34 lg:w-34 mr-2 md:mr-3 object-contain hover:scale-105 transition-transform duration-300 opacity-90 hover:opacity-100"
                 style={{
                   filter: 'drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1))',
                   mixBlendMode: 'multiply'
@@ -384,24 +384,7 @@ const Header: React.FC = () => {
                     <a href="#faq" className="block px-4 py-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 transition-all duration-200 rounded-lg mx-2">FAQ</a>
                   </div>
                 )}
-              </div>
-
-              <button 
-                onClick={() => handleTabClick('contact', '#contact')}
-                className={getTabClasses('contact')}
-              >
-                Contact
-                {getActiveIndicator('contact')}
-              </button>
             </div>
-          </div>
-          
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden ml-auto">
-            <button
-              onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-blue-50/50 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
-            >
               <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />
