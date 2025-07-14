@@ -116,30 +116,31 @@ const Header: React.FC = () => {
       {/* Top Blue Header Background */}
       <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <span className="text-white font-medium text-sm md:text-base font-poppins">
-              #1 Healthcare Training Institute
-            </span>
-          </div>
-        </div>
-      </div>
-
-      {/* Contact Info Bar */}
-      <div className="bg-gray-50 border-b border-gray-200 py-2">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center text-sm">
-            <div className="flex items-center space-x-6 mb-1 sm:mb-0">
-              <div className="flex items-center text-gray-600">
-                <Phone size={14} className="mr-2 text-blue-600" />
-                <span className="font-poppins">+919052992967</span>
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+            {/* Left side - Contact Info */}
+            <div className="flex items-center space-x-4 md:space-x-6">
+              <div className="flex items-center text-white/90 hover:text-white transition-colors duration-300 cursor-pointer group">
+                <Phone size={14} className="mr-2 group-hover:scale-110 transition-transform duration-300" />
+                <span className="font-poppins text-sm">+919052992967</span>
               </div>
-              <div className="flex items-center text-gray-600">
-                <Mail size={14} className="mr-2 text-blue-600" />
-                <span className="font-poppins">info@cliniglobal.com</span>
+              <div className="flex items-center text-white/90 hover:text-white transition-colors duration-300 cursor-pointer group">
+                <Mail size={14} className="mr-2 group-hover:scale-110 transition-transform duration-300" />
+                <span className="font-poppins text-sm">info@cliniglobal.com</span>
               </div>
             </div>
-            <div className="text-gray-600 font-poppins">
-              <span>Assured Healthcare Training • Career Focused</span>
+            
+            {/* Center - Main Highlight */}
+            <div className="text-center">
+              <span className="text-orange-400 font-bold text-sm md:text-base font-poppins hover:text-orange-300 transition-colors duration-300 cursor-pointer hover:scale-105 transform inline-block">
+                #1 Healthcare Training Institute
+              </span>
+            </div>
+            
+            {/* Right side - Tagline */}
+            <div className="text-white/90 hover:text-white transition-colors duration-300 cursor-pointer">
+              <span className="font-poppins text-sm hover:scale-105 transform inline-block transition-transform duration-300">
+                Assured Healthcare Training • Career Focused
+              </span>
             </div>
           </div>
         </div>
