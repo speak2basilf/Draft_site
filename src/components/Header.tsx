@@ -119,26 +119,26 @@ const Header: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             {/* Left side - Contact Info */}
             <div className="flex items-center space-x-4 md:space-x-6">
-              <div className="flex items-center text-white/90 hover:text-white transition-colors duration-300 cursor-pointer group">
-                <Phone size={14} className="mr-2 group-hover:scale-110 transition-transform duration-300" />
-                <span className="font-poppins text-sm">+919052992967</span>
+              <div className="flex items-center text-white/90 hover:text-white transition-all duration-300 cursor-pointer group hover:scale-105">
+                <Phone size={14} className="mr-2 group-hover:scale-125 transition-transform duration-300" />
+                <span className="font-poppins text-sm group-hover:font-semibold">+919052992967</span>
               </div>
-              <div className="flex items-center text-white/90 hover:text-white transition-colors duration-300 cursor-pointer group">
-                <Mail size={14} className="mr-2 group-hover:scale-110 transition-transform duration-300" />
-                <span className="font-poppins text-sm">info@cliniglobal.com</span>
+              <div className="flex items-center text-white/90 hover:text-white transition-all duration-300 cursor-pointer group hover:scale-105">
+                <Mail size={14} className="mr-2 group-hover:scale-125 transition-transform duration-300" />
+                <span className="font-poppins text-sm group-hover:font-semibold">info@cliniglobal.com</span>
               </div>
             </div>
             
             {/* Center - Main Highlight */}
             <div className="text-center">
-              <span className="text-orange-400 font-bold text-sm md:text-base font-poppins hover:text-orange-300 transition-colors duration-300 cursor-pointer hover:scale-105 transform inline-block">
+              <span className="text-orange-400 font-bold text-sm md:text-base font-poppins hover:text-orange-200 hover:shadow-lg transition-all duration-300 cursor-pointer hover:scale-110 transform inline-block px-2 py-1 rounded hover:bg-orange-500/20">
                 #1 Healthcare Training Institute
               </span>
             </div>
             
             {/* Right side - Tagline */}
-            <div className="text-white/90 hover:text-white transition-colors duration-300 cursor-pointer">
-              <span className="font-poppins text-sm hover:scale-105 transform inline-block transition-transform duration-300">
+            <div className="text-white/90 hover:text-white transition-all duration-300 cursor-pointer hover:scale-105">
+              <span className="font-poppins text-sm hover:scale-105 hover:font-semibold transform inline-block transition-all duration-300">
                 Assured Healthcare Training • Career Focused
               </span>
             </div>
