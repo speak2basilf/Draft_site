@@ -19,9 +19,9 @@ const AccreditationsPage: React.FC = () => {
     },
     {
       name: 'LSSSDC',
-      logo: '/logo 5.jpeg',
+      logo: '/logo 3 copy.png',
       description: 'Life Sciences Sector Skill Development Council',
-      details: 'Government of India recognition for skill development in life sciences and healthcare sector.',
+      details: 'Academic partnership for degree and diploma programs in healthcare education.',
       category: 'Skill Development'
     },
     {
@@ -33,9 +33,9 @@ const AccreditationsPage: React.FC = () => {
     },
     {
       name: 'Asian International University',
-      logo: '/logo 3 copy.png',
+      logo: '/logo 5.jpeg',
       description: 'Asian International University - Manipur',
-      details: 'Academic partnership for degree and diploma programs in healthcare education.',
+      details: 'Government of India recognition for skill development in life sciences and healthcare sector.',
       category: 'Academic Partnership'
     }
   ];
