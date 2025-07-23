@@ -1,577 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import Poppins font */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Set Poppins as default font */
-* {
-  font-family: 'Poppins', sans-serif;
-}
-
-/* CliniGlobal Brand Styling */
-.cliniglobal-brand {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  transition: all 0.3s ease;
-}
-
-.cliniglobal-clini {
-  color: #1BA7C9;
-  text-shadow: 0 2px 4px rgba(27, 167, 201, 0.2);
-}
-
-.cliniglobal-global {
-  color: #F67E3C;
-  text-shadow: 0 2px 4px rgba(246, 126, 60, 0.2);
-}
-
-.cliniglobal-brand:hover .cliniglobal-clini {
-  text-shadow: 0 4px 8px rgba(27, 167, 201, 0.4);
-  transform: scale(1.02);
-}
-
-.cliniglobal-brand:hover .cliniglobal-global {
-  text-shadow: 0 4px 8px rgba(246, 126, 60, 0.4);
-  transform: scale(1.02);
-}
-
-/* Custom animations for healthcare professionals floating */
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  25% {
-    transform: translateY(-20px) translateX(10px);
-  }
-  50% {
-    transform: translateY(-10px) translateX(20px);
-  }
-  75% {
-    transform: translateY(-30px) translateX(5px);
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --border: 214.3 31.8% 91.4%;
+    --radius: 0.75rem;
+    --blue-50: 239 246 255;
+    --blue-100: 219 234 254;
+    --blue-500: 59 130 246;
+    --blue-600: 37 99 235;
+    --blue-700: 29 78 216;
   }
 }
 
-@keyframes float-medium {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px);
+@layer base {
+  * {
+    @apply border-border;
   }
-  33% {
-    transform: translateY(-15px) translateX(-10px);
-  }
-  66% {
-    transform: translateY(-25px) translateX(15px);
-  }
-}
-
-@keyframes float-slow-reverse {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px);
-  }
-  25% {
-    transform: translateY(-15px) translateX(-15px);
-  }
-  50% {
-    transform: translateY(-30px) translateX(-5px);
-  }
-  75% {
-    transform: translateY(-10px) translateX(-20px);
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
   }
 }
 
-@keyframes float-medium-reverse {
-  0%, 100% {
-    transform: translateY(0px) translateX(0px);
+@layer components {
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium px-6 py-3 rounded-lg transition-colors duration-200;
   }
-  33% {
-    transform: translateY(-20px) translateX(12px);
+  
+  .btn-secondary {
+    @apply bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-medium px-6 py-3 rounded-lg transition-colors duration-200;
   }
-  66% {
-    transform: translateY(-8px) translateX(-18px);
+  
+  .card {
+    @apply bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow duration-200;
   }
-}
-
-/* Rotating text animation */
-@keyframes slideInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(100%);
+  
+  .section-padding {
+    @apply py-16 px-4 sm:px-6 lg:px-8;
   }
-  20%, 80% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-100%);
+  
+  .container-max {
+    @apply max-w-7xl mx-auto;
   }
 }
 
-@keyframes textRotate {
-  0%, 25% {
-    transform: translateY(0%);
-    opacity: 1;
-  }
-  26%, 100% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
+/* Modern gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
 }
 
-/* Rolling text animation from right to left */
-@keyframes rollRightToLeft {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  10%, 90% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
+.gradient-secondary {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
 
-/* Neon glow animation for ManageOps */
-@keyframes neon-pulse {
-  0%, 100% {
-    text-shadow: 
-      0 0 5px currentColor,
-      0 0 10px currentColor,
-      0 0 15px currentColor,
-      0 0 20px #00ffff,
-      0 0 35px #00ffff,
-      0 0 40px #00ffff;
-  }
-  50% {
-    text-shadow: 
-      0 0 2px currentColor,
-      0 0 5px currentColor,
-      0 0 8px currentColor,
-      0 0 12px #00ffff,
-      0 0 18px #00ffff,
-      0 0 25px #00ffff;
-  }
+/* Modern card styles */
+.modern-card {
+  @apply bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all duration-300;
 }
 
-@keyframes tech-flicker {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
-}
-
-/* Continuous underline hover effect */
-@keyframes continuousUnderline {
-  0% {
-    transform: scaleX(0);
-    transform-origin: left;
-  }
-  50% {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
-  51% {
-    transform: scaleX(1);
-    transform-origin: right;
-  }
-  100% {
-    transform: scaleX(0);
-    transform-origin: right;
-  }
-}
-
-/* Enhanced border animation for Enroll button */
-@keyframes borderGlow {
-  0%, 100% {
-    box-shadow: 
-      0 0 5px rgba(59, 130, 246, 0.5),
-      0 0 10px rgba(59, 130, 246, 0.3),
-      0 0 15px rgba(59, 130, 246, 0.2),
-      inset 0 0 5px rgba(59, 130, 246, 0.1);
-  }
-  50% {
-    box-shadow: 
-      0 0 10px rgba(59, 130, 246, 0.8),
-      0 0 20px rgba(59, 130, 246, 0.6),
-      0 0 30px rgba(59, 130, 246, 0.4),
-      inset 0 0 10px rgba(59, 130, 246, 0.2);
-  }
-}
-
-@keyframes borderPulse {
-  0%, 100% {
-    border-color: rgba(59, 130, 246, 0.5);
-    transform: scale(1);
-  }
-  50% {
-    border-color: rgba(59, 130, 246, 1);
-    transform: scale(1.02);
-  }
-}
-
-/* Counter animation for Career Opportunities */
-@keyframes countUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.counter-animate {
-  animation: countUp 0.6s ease-out forwards;
-}
-
-/* Pulse animation for metric cards */
-@keyframes metricPulse {
-  0%, 100% {
-    transform: scale(1);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  50% {
-    transform: scale(1.02);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
-  }
-}
-
-.metric-card:hover {
-  animation: metricPulse 2s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float-slow 8s ease-in-out infinite;
-}
-
-.animate-float-medium {
-  animation: float-medium 6s ease-in-out infinite;
-}
-
-.animate-float-slow-reverse {
-  animation: float-slow-reverse 10s ease-in-out infinite;
-}
-
-.animate-float-medium-reverse {
-  animation: float-medium-reverse 7s ease-in-out infinite;
-}
-
-.neon-text {
-  animation: neon-pulse 2s ease-in-out infinite alternate;
-}
-
-.tech-flicker {
-  animation: tech-flicker 3s ease-in-out infinite;
-}
-
-.rotating-text {
-  animation: slideInUp 8s infinite;
-}
-
-.rotating-text:nth-child(1) { animation-delay: 0s; }
-.rotating-text:nth-child(2) { animation-delay: 2s; }
-.rotating-text:nth-child(3) { animation-delay: 4s; }
-.rotating-text:nth-child(4) { animation-delay: 6s; }
-
-/* Rolling text animation */
-.rolling-text-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-}
-
-.rolling-text {
-  display: inline-block;
-  animation: rollRightToLeft 8s infinite;
-  white-space: nowrap;
-}
-
-/* Continuous underline hover effect for CliniGlobal text */
-.underline-hover-continuous {
-  position: relative;
-  display: inline-block;
-}
-
-.underline-hover-continuous::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(to right, #3b82f6, #f97316);
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: continuousUnderline 3s ease-in-out infinite;
-}
-
-/* Stylish CliniGlobal text effects */
-.cliniglobal-text {
-  position: relative;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  letter-spacing: -0.02em;
-}
-
-.cliniglobal-text:hover {
-  transform: scale(1.02);
-  text-shadow: 0 4px 8px rgba(59, 130, 246, 0.3), 0 4px 8px rgba(249, 115, 22, 0.3);
-}
-
-/* Enhanced Enroll button styles */
-.enroll-button {
-  position: relative;
-  overflow: hidden;
-  animation: borderGlow 3s ease-in-out infinite, borderPulse 2s ease-in-out infinite;
-}
-
-.enroll-button::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #3b82f6, #6366f1, #8b5cf6, #3b82f6);
-  background-size: 300% 300%;
-  border-radius: inherit;
-  z-index: -1;
-  animation: borderRotate 3s linear infinite;
-}
-
-@keyframes borderRotate {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.enroll-button::after {
-  content: '';
-  position: absolute;
-  inset: 2px;
-  background: inherit;
-  border-radius: inherit;
-  z-index: -1;
-}
-
-/* Additional utility classes for different sizes */
-.w-26 { width: 6.5rem; }
-.h-26 { height: 6.5rem; }
-.w-30 { width: 7.5rem; }
-.h-30 { height: 7.5rem; }
-.w-34 { width: 8.5rem; }
-.h-34 { height: 8.5rem; }
-.w-18 { width: 4.5rem; }
-.h-18 { height: 4.5rem; }
-
-/* Custom scrollbar for better UX */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #3b82f6, #6366f1);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #2563eb, #4f46e5);
-}
-
-/* Hide scrollbar for navigation */
-.scrollbar-hide {
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
-  scrollbar-width: none;  /* Firefox */
-}
-.scrollbar-hide::-webkit-scrollbar { 
-  display: none;  /* Safari and Chrome */
-}
-
-/* Line clamp utilities */
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Enhanced submenu navigation styles */
-.submenu-nav {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  background: rgba(255, 255, 255, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  position: sticky;
-  top: 128px;
-  z-index: 40;
-}
-
-.submenu-button {
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.submenu-button:hover {
+.modern-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.submenu-button.active {
-  transform: translateY(-2px) scale(1.05);
-  box-shadow: 0 12px 30px rgba(59, 130, 246, 0.3);
+/* Professional typography */
+.heading-primary {
+  @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
 }
 
-/* Facility Images Animation */
-@keyframes slide-infinite {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
+.heading-secondary {
+  @apply text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight;
 }
 
-.animate-slide-infinite {
-  animation: slide-infinite 30s linear infinite;
+.text-large {
+  @apply text-lg md:text-xl;
 }
 
-.animate-slide-infinite:hover {
-  animation-play-state: paused;
+/* Interactive elements */
+.interactive-hover {
+  @apply transition-all duration-200 hover:scale-105;
 }
 
-/* Enhanced placement partners animation */
-.placement-partners-container {
-  mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent,
-    black 10%,
-    black 90%,
-    transparent
-  );
+/* Clean layout spacing */
+.section-spacing {
+  @apply space-y-12 md:space-y-16 lg:space-y-20;
 }
 
-/* Blog content styling */
-.blog-content {
-  line-height: 1.8;
-  color: #374151;
+/* Modern form styles */
+.form-input {
+  @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors;
 }
 
-.blog-content h2 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin: 2rem 0 1rem 0;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 0.5rem;
+.form-label {
+  @apply block text-sm font-medium text-gray-700 mb-2;
 }
 
-.blog-content h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #374151;
-  margin: 1.5rem 0 0.75rem 0;
+/* Professional icons */
+.icon-primary {
+  @apply text-blue-600;
 }
 
-.blog-content p {
-  margin: 1rem 0;
-  text-align: left;
+.icon-secondary {
+  @apply text-gray-500;
 }
 
-.blog-content ul, .blog-content ol {
-  margin: 1rem 0;
-  padding-left: 2rem;
+/* Status indicators */
+.status-success {
+  @apply bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium;
 }
 
-.blog-content li {
-  margin: 0.5rem 0;
-  text-align: left;
+.status-info {
+  @apply bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium;
 }
 
-.blog-content strong {
-  font-weight: 600;
-  color: #1f2937;
+/* Layout utilities */
+.grid-auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.blog-image {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  border-radius: 1rem;
-  margin: 2rem 0;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Prose styling for better readability */
-.prose {
-  max-width: none;
-}
-
-.prose h2 {
-  font-size: 1.875rem;
-  font-weight: 700;
-  color: #1f2937;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  border-bottom: 2px solid #e5e7eb;
-  padding-bottom: 0.5rem;
-}
-
-.prose h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #374151;
-  margin-top: 1.5rem;
-  margin-bottom: 0.75rem;
-}
-
-.prose p {
-  margin: 1rem 0;
-  line-height: 1.8;
-  text-align: left;
-}
-
-.prose ul, .prose ol {
-  margin: 1rem 0;
-  padding-left: 2rem;
-}
-
-.prose li {
-  margin: 0.5rem 0;
-  text-align: left;
-}
-
-.prose strong {
-  font-weight: 600;
-  color: #1f2937;
+.grid-auto-fill {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 }
