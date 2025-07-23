@@ -11,13 +11,14 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center space-x-2">
-              <div className="bg-blue-600 text-white p-2 rounded-lg">
-                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                </svg>
+            <div className="flex items-center">
+              <div className="text-2xl font-bold">
+                <span className="text-cyan-500">Clini</span>
+                <span className="text-orange-500">Global</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">CliniGlobal</span>
+              <div className="ml-2 text-sm text-gray-600 font-medium">
+                Research Institute
+              </div>
             </div>
           </Link>
 

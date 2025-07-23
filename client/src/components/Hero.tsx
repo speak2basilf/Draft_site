@@ -40,7 +40,7 @@ const Hero: React.FC = () => {
             </h1>
             
             <p className="text-large text-blue-100 mb-8 max-w-2xl mx-auto lg:mx-0">
-              Join India's leading clinical research training institute. Get industry-ready skills, 
+              Join <span className="text-cyan-300 font-semibold">Clini</span><span className="text-orange-300 font-semibold">Global</span> Research Institute - India's leading clinical research training institute. Get industry-ready skills, 
               expert mentorship, and guaranteed placement support to transform your healthcare career.
             </p>
 

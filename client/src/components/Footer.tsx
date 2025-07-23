@@ -11,13 +11,14 @@ const Footer: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="bg-blue-600 text-white p-2 rounded-lg">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                  </svg>
+              <div className="mb-4">
+                <div className="text-2xl font-bold mb-1">
+                  <span className="text-cyan-400">Clini</span>
+                  <span className="text-orange-400">Global</span>
                 </div>
-                <span className="text-xl font-bold">CliniGlobal</span>
+                <div className="text-sm text-gray-400 font-medium">
+                  Research Institute
+                </div>
               </div>
               <p className="text-gray-300 mb-6 leading-relaxed">
                 India's leading clinical research training institute with 100% placement guarantee. 
