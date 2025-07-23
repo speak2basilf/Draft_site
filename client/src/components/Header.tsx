@@ -11,12 +11,12 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center">
-              <div className="text-2xl font-bold">
+            <div className="flex flex-col">
+              <div className="text-2xl font-bold leading-tight">
                 <span className="text-cyan-500">Clini</span>
                 <span className="text-orange-500">Global</span>
               </div>
-              <div className="ml-2 text-sm text-gray-600 font-medium">
+              <div className="text-sm text-gray-600 font-medium -mt-1">
                 Research Institute
               </div>
             </div>
