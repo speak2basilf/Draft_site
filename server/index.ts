@@ -56,11 +56,11 @@ app.use((req, res, next) => {
   });
 
   // Serve frontend assets or setup Vite in dev
-  if (app.get("env") === "development") {
-    await setupVite(app, server);
-  } else {
-    serveStatic(app);
-  }
+  if (process.env.NODE_ENV !== "production") {
+  await setupVite(app, server); // Development mode with Vite middleware
+} else {
+  serveStatic(app);             // ✅ Production mode serves static files
+}
 
   // Start server on fixed port
   const PORT = 5000;
