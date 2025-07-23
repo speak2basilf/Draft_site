@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'wouter';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -55,86 +55,114 @@ function App() {
   return (
     <Router>
       <div className="min-h-screen bg-white">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/courses" element={
-            <CoursePageLayout>
-              <CoursesPage />
-            </CoursePageLayout>
-          } />
-          <Route path="/courses/crm" element={
-            <CoursePageLayout>
-              <CRMCourse />
-            </CoursePageLayout>
-          } />
-          <Route path="/courses/medical-coding" element={
-            <CoursePageLayout>
-              <MedicalCodingCourse />
-            </CoursePageLayout>
-          } />
-          <Route path="/placements" element={
-            <CoursePageLayout>
-              <PlacementsPage />
-            </CoursePageLayout>
-          } />
-          <Route path="/accreditations" element={
-            <CoursePageLayout>
-              <AccreditationsPage />
-            </CoursePageLayout>
-          } />
-          <Route path="/learning-centers" element={
-            <CoursePageLayout>
-              <LearningCentersPage />
-            </CoursePageLayout>
-          } />
-          <Route path="/blog" element={
-            <CoursePageLayout>
-              <BlogPage />
-            </CoursePageLayout>
-          } />
-          <Route path="/privacy-policy" element={
-            <CoursePageLayout>
-              <PrivacyPolicyPage />
-            </CoursePageLayout>
-          } />
+        <Switch>
+          <Route path="/" component={HomePage} />
+          <Route path="/courses">
+            {() => (
+              <CoursePageLayout>
+                <CoursesPage />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/courses/crm">
+            {() => (
+              <CoursePageLayout>
+                <CRMCourse />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/courses/medical-coding">
+            {() => (
+              <CoursePageLayout>
+                <MedicalCodingCourse />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/placements">
+            {() => (
+              <CoursePageLayout>
+                <PlacementsPage />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/accreditations">
+            {() => (
+              <CoursePageLayout>
+                <AccreditationsPage />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/learning-centers">
+            {() => (
+              <CoursePageLayout>
+                <LearningCentersPage />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/blog">
+            {() => (
+              <CoursePageLayout>
+                <BlogPage />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/privacy-policy">
+            {() => (
+              <CoursePageLayout>
+                <PrivacyPolicyPage />
+              </CoursePageLayout>
+            )}
+          </Route>
           {/* Placeholder routes for other courses */}
-          <Route path="/courses/pgdcr" element={
-            <CoursePageLayout>
-              <CRMCourse />
-            </CoursePageLayout>
-          } />
-          <Route path="/courses/adcr" element={
-            <CoursePageLayout>
-              <ADCRCourse />
-            </CoursePageLayout>
-          } />
-          <Route path="/courses/clinical-sas" element={
-            <CoursePageLayout>
-              <ClinicalSASCourse />
-            </CoursePageLayout>
-          } />
-          <Route path="/courses/bioinformatics" element={
-            <CoursePageLayout>
-              <div className="min-h-screen flex items-center justify-center">
-                <h1 className="text-4xl font-bold text-gray-900">Bioinformatics Course - Coming Soon</h1>
-              </div>
-            </CoursePageLayout>
-          } />
-          <Route path="/courses/ai-ml" element={
-            <CoursePageLayout>
-              <div className="min-h-screen flex items-center justify-center">
-                <h1 className="text-4xl font-bold text-gray-900">AI & ML in Healthcare Course - Coming Soon</h1>
-              </div>
-            </CoursePageLayout>
-          } />
-          <Route path="/courses/mba" element={
-            <CoursePageLayout>
-              <div className="min-h-screen flex items-center justify-center">
-                <h1 className="text-4xl font-bold text-gray-900">MBA in Healthcare Management Course - Coming Soon</h1>
-              </div>
-            </CoursePageLayout>
-          } />
-        </Routes>
+          <Route path="/courses/pgdcr">
+            {() => (
+              <CoursePageLayout>
+                <CRMCourse />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/courses/adcr">
+            {() => (
+              <CoursePageLayout>
+                <ADCRCourse />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/courses/clinical-sas">
+            {() => (
+              <CoursePageLayout>
+                <ClinicalSASCourse />
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/courses/bioinformatics">
+            {() => (
+              <CoursePageLayout>
+                <div className="min-h-screen flex items-center justify-center">
+                  <h1 className="text-4xl font-bold text-gray-900">Bioinformatics Course - Coming Soon</h1>
+                </div>
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/courses/ai-ml">
+            {() => (
+              <CoursePageLayout>
+                <div className="min-h-screen flex items-center justify-center">
+                  <h1 className="text-4xl font-bold text-gray-900">AI & ML in Healthcare Course - Coming Soon</h1>
+                </div>
+              </CoursePageLayout>
+            )}
+          </Route>
+          <Route path="/courses/mba">
+            {() => (
+              <CoursePageLayout>
+                <div className="min-h-screen flex items-center justify-center">
+                  <h1 className="text-4xl font-bold text-gray-900">MBA in Healthcare Management Course - Coming Soon</h1>
+                </div>
+              </CoursePageLayout>
+            )}
+          </Route>
+        </Switch>
       </div>
     </Router>
   );

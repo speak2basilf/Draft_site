@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Clock, Users, Award, BookOpen, CheckCircle, Star, Calendar, Download, Phone, Mail, MapPin, Heart, Sparkles, GraduationCap, Target, TrendingUp, Shield, FileText, MessageCircle, ChevronDown, ChevronUp, Play, Code, Database, BarChart, Cpu, Brain, Activity, ExternalLink, ChevronRight, Microscope } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import ContactModal from '../components/ui/ContactModal';
 
 const ClinicalSASCourse: React.FC = () => {
-  const navigate = useNavigate();
+  const [, setLocation] = useLocation();
   const [activeSection, setActiveSection] = useState('about-course');
   const [showFloatingSidebar, setShowFloatingSidebar] = useState(false);
   const [expandedModule, setExpandedModule] = useState<number | null>(0);
@@ -278,7 +278,7 @@ const ClinicalSASCourse: React.FC = () => {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <button 
-            onClick={() => navigate('/')}
+            onClick={() => setLocation('/')}
             className="flex items-center text-blue-600 hover:text-blue-800 mb-8 transition-colors font-medium"
           >
             <ArrowLeft size={20} className="mr-2" />
@@ -950,8 +950,7 @@ const ClinicalSASCourse: React.FC = () => {
       <ContactModal
         isOpen={contactModal.isOpen}
         onClose={closeContactModal}
-        buttonType={contactModal.type}
-        courseName="Advanced Clinical SAS Programming"
+        type={contactModal.type}
       />
     </div>
   );

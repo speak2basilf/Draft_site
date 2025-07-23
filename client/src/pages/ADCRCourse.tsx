@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Clock, Users, Award, BookOpen, CheckCircle, Star, Calendar, Download, Phone, Mail, MapPin, Heart, Sparkles, GraduationCap, Target, TrendingUp, Shield, FileText, MessageCircle } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 import ContactModal from '../components/ui/ContactModal';
 
 const ADCRCourse: React.FC = () => {
-  const navigate = useNavigate();
+  const [, setLocation] = useLocation();
   const [activeSection, setActiveSection] = useState('about-course');
   const [showFloatingSidebar, setShowFloatingSidebar] = useState(false);
   const [contactModal, setContactModal] = useState<{
@@ -301,7 +301,7 @@ const ADCRCourse: React.FC = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <button 
-            onClick={() => navigate('/')}
+            onClick={() => setLocation('/')}
             className="flex items-center text-white/80 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft size={20} className="mr-2" />
@@ -561,8 +561,7 @@ const ADCRCourse: React.FC = () => {
       <ContactModal
         isOpen={contactModal.isOpen}
         onClose={closeContactModal}
-        buttonType={contactModal.type}
-        courseName="Advanced Diploma in Clinical Research"
+        type={contactModal.type}
       />
     </div>
   );

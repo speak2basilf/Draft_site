@@ -1,10 +1,10 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import { BookOpen, Clock, Users, Award, ArrowRight, GraduationCap, Target, TrendingUp, Star } from 'lucide-react';
 import { GlowingEffect } from '../components/ui/glowing-effect';
 
 const CoursesPage: React.FC = () => {
-  const navigate = useNavigate();
+  const [, setLocation] = useLocation();
 
   const courses = [
     {
@@ -125,7 +125,7 @@ const CoursesPage: React.FC = () => {
   ];
 
   const handleCourseClick = (course: typeof courses[0]) => {
-    navigate(course.route);
+    setLocation(course.route);
   };
 
   const getColorClasses = (color: string) => {

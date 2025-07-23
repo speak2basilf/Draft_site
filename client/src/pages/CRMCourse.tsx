@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, Clock, Users, Award, BookOpen, CheckCircle, Star, Calendar, Download, Phone, Mail, MapPin, Heart, Sparkles, GraduationCap, Target, TrendingUp, Shield, Microscope, Activity, Brain, FileText, BarChart, Globe, Upload, MessageCircle } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation } from 'wouter';
 import { TestimonialSlider } from '../components/ui/testimonial-slider';
 import ContactModal from '../components/ui/ContactModal';
 
 const CRMCourse: React.FC = () => {
-  const navigate = useNavigate();
+  const [, setLocation] = useLocation();
   const [activeSection, setActiveSection] = useState('about-course');
   const [showFloatingSidebar, setShowFloatingSidebar] = useState(false);
   const [contactModal, setContactModal] = useState<{
@@ -351,7 +351,7 @@ const CRMCourse: React.FC = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <button 
-            onClick={() => navigate('/')}
+            onClick={() => setLocation('/')}
             className="flex items-center text-white/80 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft size={20} className="mr-2" />
@@ -571,10 +571,12 @@ const CRMCourse: React.FC = () => {
           <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">Hear From Our Successful Graduates</h2>
           <div className="bg-white/40 backdrop-blur-lg rounded-3xl p-8 border border-white/20 shadow-lg">
             <TestimonialSlider testimonials={testimonials.map(t => ({
-              img: t.image,
-              quote: t.testimonial,
+              image: t.image,
+              testimonial: t.testimonial,
               name: t.name,
-              role: t.role
+              role: t.role,
+              company: '',
+              rating: 5
             }))} />
           </div>
         </section>
@@ -715,8 +717,7 @@ const CRMCourse: React.FC = () => {
       <ContactModal
         isOpen={contactModal.isOpen}
         onClose={closeContactModal}
-        buttonType={contactModal.type}
-        courseName="PG Diploma in Clinical Research"
+        type={contactModal.type}
       />
     </div>
   );
